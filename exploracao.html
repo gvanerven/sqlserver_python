@@ -11773,7 +11773,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11792,24 +11792,34 @@ div#notebook {
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/Users/gvanerven/anaconda3/lib/python3.6/site-packages/ggplot/utils.py:81: FutureWarning: pandas.tslib is deprecated and will be removed in a future version.
+You can access Timestamp as pandas.Timestamp
+  pd.tslib.Timestamp,
+/Users/gvanerven/anaconda3/lib/python3.6/site-packages/ggplot/stats/smoothers.py:4: FutureWarning: The pandas.lib module is deprecated and will be removed in a future version. These are private functions and can be accessed from pandas._libs.lib instead
+  from pandas.lib import Timestamp
+/Users/gvanerven/anaconda3/lib/python3.6/site-packages/statsmodels/compat/pandas.py:56: FutureWarning: The pandas.core.datetools module is deprecated and will be removed in a future version. Please use the pandas.tseries module instead.
+  from pandas.core import datetools
+</pre>
 </div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#df_desempenho = pd.read_csv(&quot;dados_desempenho_sql_python.csv&quot;, sep=&quot;;&quot;)</span>
-<span class="c1">#df_desempenho.head()</span>
-</pre></div>
+</div>
 
 </div>
 </div>
-</div>
 
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#df_desempenho_mssql = df_desempenho.query(&quot;origem == &#39;SQL_Server&#39;&quot;)</span>
@@ -11836,6 +11846,43 @@ div#notebook {
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>(550, 5)
 (550, 5)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">tp_total_mssql</span> <span class="o">=</span> <span class="n">df_desempenho_mssql</span><span class="p">[</span><span class="s2">&quot;tmp_total&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">tp_python_mssql</span> <span class="o">=</span> <span class="n">df_desempenho_mssql</span><span class="p">[</span><span class="s2">&quot;tmp_python&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">tp_total_ext</span> <span class="o">=</span> <span class="n">df_desempenho_extpython</span><span class="p">[</span><span class="s2">&quot;tmp_total&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="n">tp_python_ext</span> <span class="o">=</span> <span class="n">df_desempenho_extpython</span><span class="p">[</span><span class="s2">&quot;tmp_python&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">values</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sts</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">tp_total_ext</span><span class="p">,</span><span class="n">tp_total_mssql</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sts</span><span class="o">.</span><span class="n">ttest_ind</span><span class="p">(</span><span class="n">tp_python_ext</span><span class="p">,</span><span class="n">tp_python_mssql</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Ttest_indResult(statistic=-14.801766269056596, pvalue=2.4573425690927118e-45)
+Ttest_indResult(statistic=-13.234937365469676, pvalue=3.3042830349149419e-37)
 </pre>
 </div>
 </div>
@@ -16776,14 +16823,14 @@ QmCC
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;boxes&#39;: [&lt;matplotlib.lines.Line2D at 0x1193b1eb8&gt;],
- &#39;caps&#39;: [&lt;matplotlib.lines.Line2D at 0x118e81748&gt;,
-  &lt;matplotlib.lines.Line2D at 0x118e81c50&gt;],
- &#39;fliers&#39;: [&lt;matplotlib.lines.Line2D at 0x118e81780&gt;],
+<pre>{&#39;boxes&#39;: [&lt;matplotlib.lines.Line2D at 0x119402908&gt;],
+ &#39;caps&#39;: [&lt;matplotlib.lines.Line2D at 0x118e51940&gt;,
+  &lt;matplotlib.lines.Line2D at 0x118e51978&gt;],
+ &#39;fliers&#39;: [&lt;matplotlib.lines.Line2D at 0x118e51e10&gt;],
  &#39;means&#39;: [],
- &#39;medians&#39;: [&lt;matplotlib.lines.Line2D at 0x118e81be0&gt;],
- &#39;whiskers&#39;: [&lt;matplotlib.lines.Line2D at 0x1193b1e48&gt;,
-  &lt;matplotlib.lines.Line2D at 0x1193b1438&gt;]}</pre>
+ &#39;medians&#39;: [&lt;matplotlib.lines.Line2D at 0x118e513c8&gt;],
+ &#39;whiskers&#39;: [&lt;matplotlib.lines.Line2D at 0x1194020f0&gt;,
+  &lt;matplotlib.lines.Line2D at 0x119402b00&gt;]}</pre>
 </div>
 
 </div>
@@ -17292,7 +17339,7 @@ AAAASUVORK5CYII=
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;ggplot: (-9223372036559329599)&gt;</pre>
+<pre>&lt;ggplot: (-9223372036559894994)&gt;</pre>
 </div>
 
 </div>
@@ -17741,7 +17788,7 @@ FQIwAAAAogoBGAAAAFGFAAwAAICoQgAGAABAVPk/LTDTGfYUXckAAAAASUVORK5CYII=
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;ggplot: (294295388)&gt;</pre>
+<pre>&lt;ggplot: (294427866)&gt;</pre>
 </div>
 
 </div>
@@ -18233,7 +18280,7 @@ REREFAcM1kREREREccBgTUREREQUB/8HW+SooGDgoEkAAAAASUVORK5CYII=
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;ggplot: (-9223372036560454228)&gt;</pre>
+<pre>&lt;ggplot: (294285092)&gt;</pre>
 </div>
 
 </div>
@@ -18633,7 +18680,7 @@ SFZY4BIRERGRrPwPwwRtzxLhZ3oAAAAASUVORK5CYII=
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;ggplot: (-9223372036560232553)&gt;</pre>
+<pre>&lt;ggplot: (294467020)&gt;</pre>
 </div>
 
 </div>
